@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class ReduceToZero {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of steps: ");
+        int numSteps = scanner.nextInt();
+        scanner.close();
+
+        int steps = reduceToZero(numSteps);
+        System.out.println("Minimum number of steps required to reduce to zero: " + steps);
+    }
+
+    public static int reduceToZero(int num) {
+        int steps = 0;
+
+        while (num != 0) {
+            if (num % 2 == 0) {
+                num /= 2;
+            } else {
+                num--;
+            }
+            steps++;
+        }
+
+        return steps;
+    }
+}
