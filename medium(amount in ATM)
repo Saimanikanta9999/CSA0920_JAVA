@@ -1,0 +1,18 @@
+public class ATM {
+    public static void main(String[] args) {
+        // Denominations and their respective quantities
+        int[] denominations = {2000, 500, 100, 50, 20, 10};
+        int[] quantities = {100, 200, 300, 400, 500, 600};
+
+        int totalAmount = calculateTotalAmount(denominations, quantities);
+        System.out.println("Total amount available in the ATM: " + totalAmount);
+    }
+
+    public static int calculateTotalAmount(int[] denominations, int[] quantities) {
+        int totalAmount = 0;
+        for (int i = 0; i < denominations.length; i++) {
+            totalAmount += denominations[i] * quantities[i];
+        }
+        return totalAmount;
+    }
+}
