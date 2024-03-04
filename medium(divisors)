@@ -1,0 +1,27 @@
+public class PerfectNumber {
+    public static void main(String[] args) {
+        System.out.println("Perfect numbers:");
+        printPerfectNumbers(10000);
+    }
+
+    public static void printPerfectNumbers(int n) {
+        for (int i = 2; i <= n; i++) {
+            if (isPerfect(i)) {
+                System.out.println(i);
+            }
+        }
+    }
+
+    public static boolean isPerfect(int num) {
+        int sum = 1; // Start sum from 1
+        for (int i = 2; i * i <= num; i++) {
+            if (num % i == 0) {
+                sum += i;
+                if (i * i != num) { // Check for perfect square to avoid adding the same divisor twice
+                    sum += num / i;
+                }
+            }
+        }
+        return sum == num;
+    }
+}
