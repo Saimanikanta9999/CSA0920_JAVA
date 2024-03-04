@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class StudentMarks {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of students: ");
+        int numStudents = scanner.nextInt();
+
+        int[][] marks = new int[numStudents][4];
+
+        // Input marks for each student
+        for (int i = 0; i < numStudents; i++) {
+            System.out.println("Enter marks for student " + (i + 1) + ":");
+            for (int j = 0; j < 4; j++) {
+                System.out.print("Enter marks for subject " + (j + 1) + ": ");
+                marks[i][j] = scanner.nextInt();
+            }
+        }
+
+        scanner.close();
+
+        // Calculate total and average marks for each student
+        for (int i = 0; i < numStudents; i++) {
+            int totalMarks = 0;
+            for (int j = 0; j < 4; j++) {
+                totalMarks += marks[i][j];
+            }
+            double averageMarks = (double) totalMarks / 4;
+            System.out.println("Total marks for student " + (i + 1) + ": " + totalMarks);
+            System.out.println("Average marks for student " + (i + 1) + ": " + averageMarks);
+            System.out.println();
+        }
+    }
+}
